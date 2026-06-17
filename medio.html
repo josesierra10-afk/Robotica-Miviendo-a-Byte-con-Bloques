@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Nivel 2 (Intermedio): Secuencia con Repetición</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-size-medium">
+    <!-- REPRODUCTOR DE SONIDO DE BOTÓN -->
+    <audio id="click-sound" src="media/click-short.mp3"></audio>
+    <!-- ELEMENTO DE AUDIO PARA TTS -->
+    <audio id="robot-tts-audio"></audio>
+    
+    <div id="main-content-wrapper">
+        <!-- CONTROLES DE ACCESIBILIDAD (TAMAÑO DE FUENTE) -->
+        <section id="accessibility-controls">
+            <button class="font-control-button" id="increase-font">A+</button>
+            <button class="font-control-button" id="decrease-font">A-</button>
+        </section>
+
+        <header>
+            <img src="img/robot saluda.png" alt="Byte, el Bot Amigable" class="logo-byte" onclick="reproduceInstructions('reto')">
+            <h1>Nivel 2: Secuencia con Repetición (Bucle)</h1>
+            <div id="nav-step-buttons" class="step-nav-buttons" style="display: flex;">
+                <button id="back-button" class="nav-arrow-button">« Volver</button>
+                <a href="index.html" class="nav-menu-button">Menú de Aventura</a>
+            </div>
+        </header>
+
+        <main class="level-content">
+            <!-- ASISTENTE VISUAL PRINCIPAL (Ruta de Aprendizaje) -->
+            <section id="asistente-rutina">
+                <h2>🗺️ Tu Ruta de Aprendizaje</h2>
+                <ul id="pasos-lista">
+                    <li id="paso-1" class="paso activo">1. 👁️ Introducción (Conceptos)</li>
+                    <li id="paso-2" class="paso">2. 💻 Reto: Bucle de Giro</li>
+                    <li id="paso-3" class="paso">3. 🤔 Juego de Emociones y Cierre</li>
+                </ul>
+            </section>
+
+            <!-- PASO 1: INTRODUCCIÓN (Genially) -->
+            <section id="intro-container" class="contenido-paso">
+                <h3 class="paso-title">Introducción al Bucle (Repetición)</h3>
+                
+                <div class="genially-container">
+                    <!-- Aquí va el Genially con la explicación del Bucle -->
+                    <iframe 
+                        title="Genially de Introducción al Bucle"
+                        src="https://view.genially.com/691a5ad81dc620ddeed79d9d/presentation-introduccion-al-bucle-repeticion-en-scratch" 
+                        allow="fullscreen" 
+                        allowfullscreen 
+                        frameborder="0">
+                    </iframe>
+                </div>
+                
+                <button class="nav-menu-button" id="btn-goto-reto">Comenzar Reto de Programación</button>
+            </section>
+        
+            <!-- PASO 2: DESARROLLO (Reto de Bucle) -->
+            <section id="scratch-container" class="contenido-paso" style="display: none;">
+                <h3 class="paso-title">Paso 2: ¡A Programar! Crea un Bucle que haga girar a Byte.</h3>
+                
+                <div class="scratch-grid-level">
+                    <div class="andamiaje-area-level">
+                        <p class="titulo-area">Guía Paso a Paso (Andamiaje)</p>
+                        <p>Usa el bloque de repetición para que el robot gire 4 veces. ¡Solo necesitas 4 bloques de código en total!</p>
+                        <ul id="micro-pasos-lista" data-next-step="emociones-container">
+                            <li class="micro-paso" data-paso="1">1. 🔁 Bloque Repetir (4 Veces)</li>
+                            <li class="micro-paso" data-paso="2">2. ➡️ Bloque Mover (10 Pasos)</li>
+                            <li class="micro-paso" data-paso="3">3. 💬 Bloque Decir ("¡Giro Completo!")</li>
+                            <li class="micro-paso" data-paso="4">4. 🏁 Bloque de Inicio (Bandera Verde)</li>
+                        </ul>
+                        <p id="mensaje-reto-completo" style="display: none;">🎉 ¡Excelente! Bucle de Movimiento Completo. <button class="nav-menu-button" id="btn-goto-emociones">Continuar</button></p>
+                    </div>
+
+                    <div class="scratch-area-level">
+                        <p class="titulo-area">Área de Programación (Scratch) - ¡Programa Aquí!</p>
+                        <p class="instruccion-scratch">RETO: El Robot Byte debe REPETIR 4 VECES la acción de MOVERSE 10 pasos. Al terminar, debe decir "¡Giro Completo!".</p>
+                        <p class="instruccion-scratch">Ingresa al link de Scratch</p>
+                        <a class="nav-menu-button" href="https://scratch.mit.edu/projects/editor/?tutorial=getStarted" target="_blank">link Scratch</a>
+                        <p class="instruccion-scratch">Ingresa al link para ver un ejemplo de como funciona un Repetir</p>
+                        <a class="nav-menu-button" href="https://scratch.mit.edu/projects/1243520253" target="_blank">como se debe de ver</a>
+                </div>
+            </section>
+
+            <!-- PASO 3: CIERRE (Juego de Emociones) -->
+            <section id="emociones-container" class="contenido-paso" style="display: none;">
+                <h3 class="paso-title">Paso 3: ¿Cómo te sientes después de programar?</h3>
+                <div class="emocion-grid">
+                    <img id="robot-emocion" src="img/robot neutro.png" alt="Robot Byte listo para reaccionar">
+                    <div class="reaccion-texto">
+                        <p id="pregunta-emocion">Selecciona la emoción que sentiste al programar:</p>
+                        <div class="botones-emocion-container">
+                            <button class="boton-emocion feliz" data-emocion="feliz">😃 Feliz</button>
+                            <button class="boton-emocion confundido" data-emocion="confundido">😟 Confundido</button>
+                            <button class="boton-emocion frustrado" data-emocion="frustrado">😠 Frustrado</button>
+                        </div>
+                        <p id="feedback-robot" class="feedback-robot" style="display: none;"></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="final-container" class="contenido-paso" style="display: none;">
+                <h3 class="paso-title">¡Misión Cumplida! Eres un Programador Nivel 2.</h3>
+                <p>Has terminado la clase de hoy. Aprendiste a usar el bucle (repetición) para ahorrar código. ¡Puedes volver al menú para intentar el Nivel Avanzado!</p>
+                <img src="img/robot Feliz.png" alt="Byte celebrando" class="logo-byte">
+                <a href="index.html" class="boton-accion" style="margin-top: 30px;">⬅️ Volver al Menú Principal</a>
+            </section>
+        
+        </main>
+    
+        <footer>
+            <!-- (El footer se mantiene) -->
+            <div class="footer-container">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h4>Información Institucional</h4>
+                        <p>Universidad Pedagógica y Tecnológica de Colombia</p>
+                        <p>Sede Central Tunja – Boyacá – Colombia</p>
+                        <p>Facultad de Ciencias de la Educación - Licenciatura en Informática</p>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Autores del REA</h4>
+                        <p>Jose Sierra (<a href="mailto:jose.sierra10@uptc.edu.co">jose.sierra10@uptc.edu.co</a>)</p>
+                        <p>Andres Salcedo (<a href="mailto:william.lopez11@uptc.edu.co">andres.salcedo02@uptc.edu.co</a>)</p>
+                    </div>
+                </div>
+                <div class="footer-divider"></div>
+                <div class="footer-logos">
+                    <img src="img/logo-facu-edu.png" alt="Logo Facultad Educación">
+                    <img src="img/logo-lic-inf.png" alt="Logo Licenciatura en Informática">
+                    <img src="img/logo-uptc.png" alt="Logo UPTC">
+                </div>
+            </div>
+            <section class="footer-credits">
+                <a href="https://creativecommons.org" target="_blank">REA</a> © 2025 by Edwin is
+                licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+                <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+            </section>
+        </footer>
+    </div>
+    <script src="js/level-scripts.js"></script>
+</body>
+</html>

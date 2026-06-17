@@ -1,0 +1,572 @@
+
+/* --- 1. Variables y Estilos Globales --- */
+:root {
+    --color-fondo-base: #F5F5F5; 
+    --color-texto-oscuro: #212121;
+    --color-primario-azul: #42A5F5; 
+    --color-secundario-verde: #81C784; 
+    --color-alerta-rojo: #EF5350;
+    --color-morado-suave: #D1C4E9; 
+    --color-morado-medio: #9575CD;
+    --color-morado-fuerte: #7E57C2;
+    --color-acento: #fe9521;
+    --color-blanco: #ffffff;
+    --color-oscuro: #222932;
+    --color-principal: #0948b9; /* Azul de Unidad 1 */
+    --max-container-width: 1200px; 
+    --grid-gap: 30px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--color-fondo-base);
+    color: var(--color-texto-oscuro);
+    line-height: 1.6;
+    padding: 0;
+    font-size: 115%; 
+    overflow-x: hidden; 
+}
+
+/* Base para el control de tamaño de fuente */
+.font-size-small { font-size: 100%; }
+.font-size-medium { font-size: 115%; }
+.font-size-large { font-size: 130%; }
+
+
+/* CLASE CRÍTICA: Oculta el contenido principal dentro del body */
+.content-hidden #main-content-wrapper {
+    opacity: 0;
+    pointer-events: none; /* Previene interacciones mientras está oculto */
+}
+
+#main-content-wrapper {
+    transition: opacity 1s; /* Para una transición suave al aparecer */
+    padding: 20px 0 0 0; /* Espaciado superior del body */
+}
+
+header {
+    text-align: center;
+    padding: 20px 20px 10px 20px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 12px 12px;
+    position: relative; 
+    max-width: var(--max-container-width);
+    margin: 0 auto;
+}
+.logo-byte {
+    width: 80px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+    cursor: pointer; /* Para indicar que es interactivo (TTS) */
+}
+
+main {
+    max-width: var(--max-container-width);
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* --- 2. Controles de Interfaz y Sonido --- */
+#accessibility-controls {
+    text-align: right;
+    padding: 0 20px 10px;
+    max-width: var(--max-container-width);
+    margin: 0 auto;
+}
+.font-control-button {
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+/* --- 3. Estilos del Diálogo Inicial (Paso 0) --- */
+.overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--color-morado-suave); 
+    display: flex; justify-content: center; align-items: center;
+    z-index: 9999; 
+    opacity: 1; transition: opacity 1s ease-in-out;
+}
+
+.dialog-box {
+    background-color: white; padding: 30px; border-radius: 15px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 500px; text-align: center; border: 3px solid var(--color-morado-fuerte); 
+}
+
+.robot-dialog {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.message-text {
+    font-size: 1.4em; min-height: 70px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-weight: 600;
+}
+
+.nav-buttons {
+    display: flex; justify-content: space-between; margin-top: 15px;
+}
+
+.nav-buttons button, .nav-buttons a {
+    padding: 10px 20px; border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer; transition: background-color 0.3s; font-weight: 600;
+    text-decoration: none;
+}
+
+#next-button {
+    background-color: var(--color-primario-azul);
+    color: white;
+}
+#prev-button {
+    background-color: #eee;
+    color: var(--color-texto-oscuro);
+}
+
+
+/* --- 4. Estilos de la Nueva Sección Intermedia (Qué es Programación) --- */
+#que-es-programacion {
+    text-align: center;
+}
+#que-es-programacion h2 {
+    color: var(--color-morado-fuerte);
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+.genially-container {
+    background-color: var(--color-blanco);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+.genially-container iframe {
+    width: 100%;
+    height: 500px; /* Ajustar según la necesidad del Genially */
+    border: none;
+    border-radius: 8px;
+}
+
+/* Botones de Nivel - Estilo Interesante (Mantenidos por si se usan en otras páginas) */
+.level-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+.level-button {
+    padding: 20px 30px;
+    border: 4px solid;
+    border-radius: 12px;
+    font-size: 1.5em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 6px 0 0 rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    text-align: center;
+}
+
+.level-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 0 rgba(0, 0, 0, 0.15);
+}
+
+.btn-facil { background-color: #DCE775; border-color: #AFB42B; color: var(--color-texto-oscuro); }
+.btn-intermedio { background-color: #FFB74D; border-color: #FF9800; color: var(--color-texto-oscuro); }
+.btn-avanzado { background-color: #E57373; border-color: #D32F2F; color: white; }
+
+
+/* --- 5. Estilos de Navegación de Nivel y Botones de Header --- */
+.step-nav-buttons {
+    display: flex; justify-content: space-between; padding: 10px 0; width: 100%; max-width: 900px; margin: 0 auto;
+}
+.nav-arrow-button, .nav-menu-button {
+    padding: 8px 15px; border: 2px solid var(--color-morado-fuerte); border-radius: 8px; font-weight: 600; cursor: pointer; transition: background-color 0.3s, color 0.3s;
+    text-decoration: none; 
+    display: inline-block;
+    text-align: center;
+}
+/* Estilo del botón 'Volver' ahora es 'Volver a Introducción' */
+.nav-arrow-button { background-color: transparent; color: var(--color-morado-fuerte); }
+/* Estilo del botón 'Menú de Aventura' */
+.nav-menu-button { background-color: var(--color-acento); color: var(--color-oscuro); border-color: var(--color-acento); }
+
+/* --- 6. Estilos de los NIVELES (Pasos, Reto y Andamiaje) --- */
+
+.paso-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--color-morado-fuerte);
+    font-size: 1.8em;
+}
+.contenido-paso {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+/* Asistente Visual de Rutina - MEJORA DE CONTRASTE */
+#asistente-rutina {
+    background-color: var(--color-morado-suave); /* Fondo de color */
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+#asistente-rutina h2 {
+    color: var(--color-morado-fuerte);
+}
+#pasos-lista {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.paso {
+    padding: 8px 12px;
+    border-bottom: 3px solid #ccc;
+    color: #555;
+    font-weight: 500;
+    transition: all 0.3s;
+    background-color: #F8F8F8; /* Fondo para que el texto sea legible */
+    border-radius: 5px 5px 0 0;
+}
+
+.paso.completado {
+    border-color: var(--color-secundario-verde);
+    color: var(--color-secundario-verde);
+    background-color: #E8F5E9;
+}
+
+.paso.activo {
+    border-color: var(--color-morado-fuerte);
+    color: var(--color-morado-fuerte);
+    font-weight: 700;
+    background-color: var(--color-blanco);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Grid de Niveles */
+.scratch-grid-level {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+    align-items: start; 
+}
+
+.andamiaje-area-level, .scratch-area-level {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #E3F2FD; /* Fondo más contrastante */
+    height: 100%;
+}
+
+/* Contenedor para el Iframe de Scratch */
+.scratch-iframe-container {
+    height: 500px;
+    border: 3px solid var(--color-morado-fuerte);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.scratch-iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.titulo-area {
+    font-weight: 700;
+    color: var(--color-oscuro);
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.1em;
+    border-bottom: 1px dashed var(--color-morado-fuerte);
+    padding-bottom: 5px;
+}
+
+/* --- 7. Estilos del Juego de Emociones (Más grande) --- */
+.emocion-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
+
+#robot-emocion {
+    max-width: 250px; /* Aumentar tamaño del robot */
+    height: auto;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    transition: border-color 0.3s;
+}
+
+.reaccion-texto {
+    width: 100%;
+    max-width: 600px;
+}
+
+#pregunta-emocion {
+    font-size: 1.5em; /* Aumentar tamaño de pregunta */
+    font-weight: 600;
+}
+
+.botones-emocion-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.boton-emocion {
+    padding: 15px 30px; /* Aumentar tamaño de botón */
+    border: 3px solid #ccc;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.2em; /* Aumentar tamaño de fuente */
+}
+/* ... (Estilos hover se mantienen) ... */
+
+
+/* --- 8. FOOTER INSTITUCIONAL Y RESPONSIVE --- */
+
+footer {
+    background-color: var(--color-oscuro);
+    color: var(--color-blanco);
+    padding: 40px 20px 10px 20px;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+.footer-container {
+    max-width: var(--max-container-width);
+    margin: 0 auto;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 0 15px;
+}
+
+.footer-column h4 {
+    color: var(--color-acento);
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-acento);
+    padding-bottom: 5px;
+}
+
+.footer-column p {
+    margin: 5px 0;
+}
+
+.footer-column a {
+    color: var(--color-primario-azul);
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+.footer-divider {
+    height: 1px;
+    background-color: #444;
+    margin: 20px 0;
+}
+
+.footer-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-logos img {
+    max-height: 50px;
+    width: auto;
+    filter: invert(1); /* Para que los logos se vean blancos en el fondo oscuro */
+}
+
+.footer-credits {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px dashed #444;
+    font-size: 0.8em;
+}
+
+.footer-credits a {
+    color: var(--color-secundario-verde);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-credits img {
+    vertical-align: middle;
+}
+
+/* Ajuste de Responsive general */
+@media (max-width: 900px) {
+    .scratch-grid-level {
+        grid-template-columns: 1fr; 
+    }
+    .footer-columns {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .emocion-grid {
+        gap: 20px;
+    }
+    .botones-emocion-container {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* --- 9. Estilos del Menú de Niveles Didáctico (Sticker - Distribución Dispersa) --- */
+
+.menu-unidades {
+    /* Centra el menú */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    background-color: transparent; 
+    box-shadow: none; 
+}
+
+.menu-unidades h3 {
+    margin-bottom: 40px;
+    color: var(--color-principal);
+    font-size: 1.8em;
+}
+
+.unidades-container {
+    /* MODIFICADO: Usamos Grid para una distribución dispersa en 3 columnas */
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 100px; 
+    align-items: start; /* Alinea al inicio verticalmente para que el margin-top funcione mejor */
+    position: relative;
+    padding: 50px 0; 
+    width: 100%;
+    max-width: 1000px;
+}
+
+.unidad-sticker {
+    /* Estilo base de la pegatina */
+    width: 250px; 
+    padding: 15px 20px;
+    margin-bottom: 0; /* No apilado */
+    border-radius: 50px 50px 50px 50px / 20px 20px 20px 20px; 
+    background-color: #f7f7e9; 
+    border: 1px solid #d4d4c5;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); 
+    text-decoration: none;
+    color: var(--color-texto-oscuro);
+    font-weight: 600;
+    font-size: 1.1em;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-self: center; /* Centra el sticker dentro de su celda de grid */
+    z-index: 10; 
+}
+
+.unidad-sticker:hover {
+    transform: scale(1.05) rotate(0deg) !important; 
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.3);
+    z-index: 20; 
+}
+
+.unidad-numero {
+    font-size: 2.2em;
+    font-weight: 900;
+    margin-right: 15px;
+    line-height: 1;
+}
+
+.unidad-texto {
+    flex-grow: 1;
+}
+
+/* Colores, Rotación y Desplazamiento Específicos (para dispersión) */
+.sticker-1 { 
+    transform: rotate(-8deg); 
+    margin-top: -30px; /* Desplazamiento hacia arriba */
+}
+.sticker-1 .unidad-numero { color: var(--color-principal); }
+
+.sticker-2 { 
+    transform: rotate(5deg); 
+    margin-top: 20px; /* Desplazamiento hacia abajo */
+}
+.sticker-2 .unidad-numero { color: #D32F2F; }
+
+.sticker-3 { 
+    transform: rotate(-4deg); 
+    margin-top: -10px; /* Desplazamiento ligero hacia arriba */
+}
+.sticker-3 .unidad-numero { color: #388E3C; }
+
+
+/* Efecto de Cinta Adhesiva (Tape) */
+.unidad-sticker::before {
+    content: '';
+    position: absolute;
+    top: -15px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.7); 
+    border: 1px solid #d4d4c5;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
+    z-index: 15; 
+}
+
+/* Ajuste de Responsive para el Menú (menos de 900px) */
+@media (max-width: 900px) {
+    .unidades-container {
+        /* En pantallas más pequeñas, volvemos a apilarlos verticalmente */
+        grid-template-columns: 1fr; 
+        gap: 30px;
+        padding: 20px 0;
+    }
+    .unidad-sticker {
+        width: 80%;
+        margin-top: 0 !important; /* Desactiva la dispersión vertical */
+        transform: rotate(0deg) !important; /* Desactiva la rotación */
+    }
+}

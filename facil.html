@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Nivel 1 (Fácil): Secuencia Simple</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="font-size-medium">
+    <!-- REPRODUCTOR DE SONIDO DE BOTÓN -->
+    <audio id="click-sound" src="media/click-short.mp3"></audio>
+    <!-- ELEMENTO DE AUDIO PARA TTS -->
+    <audio id="robot-tts-audio"></audio>
+
+    <div id="main-content-wrapper">
+        <!-- CONTROLES DE ACCESIBILIDAD (TAMAÑO DE FUENTE) -->
+        <section id="accessibility-controls">
+            <button class="font-control-button" id="increase-font">A+</button>
+            <button class="font-control-button" id="decrease-font">A-</button>
+        </section>
+
+        <header>
+            <img src="img/robot saluda.png" alt="Byte, el Bot Amigable" class="logo-byte"
+                onclick="reproduceInstructions('reto')">
+            <h1>Nivel 1: Introducción a la Secuencia Simple</h1>
+            <div id="nav-step-buttons" class="step-nav-buttons" style="display: flex;">
+                <!-- Botón de Volver: Regresa al paso anterior (Introducción -> Reto, Reto -> Emociones, etc.) -->
+                <button id="back-button" class="nav-arrow-button">« Volver</button>
+                <!-- Botón de Menú: Regresa al menú principal -->
+                <a href="index.html" class="nav-menu-button">Menú de Aventura</a>
+            </div>
+        </header>
+
+        <main class="level-content">
+            <!-- ASISTENTE VISUAL PRINCIPAL (Ruta de Aprendizaje) -->
+            <section id="asistente-rutina">
+                <h2>🗺️ Tu Ruta de Aprendizaje</h2>
+                <ul id="pasos-lista">
+                    <li id="paso-1" class="paso activo">1. 👁️ Introducción (Conceptos)</li>
+                    <li id="paso-2" class="paso">2. 💻 Reto: Secuencia Simple</li>
+                    <li id="paso-3" class="paso">3. 🤔 Juego de Emociones y Cierre</li>
+                </ul>
+            </section>
+
+            <!-- PASO 1: INTRODUCCIÓN (Genially) -->
+            <section id="intro-container" class="contenido-paso">
+                <h3 class="paso-title">Introducción a la Secuencia Básica</h3>
+
+                <div class="genially-container">
+                    <!-- Aquí va el Genially con la explicación de la Secuencia -->
+                    <iframe title="Genially de Introducción a la Secuencia"
+                        src="https://view.genially.com/6919218f276ad8bb3ca8b9ee/presentation-secuencia-basica-en-scratch"
+                        allow="fullscreen" allowfullscreen frameborder="0">
+                    </iframe>
+                </div>
+
+                <button class="nav-menu-button" id="btn-goto-reto">Comenzar Reto de Programación</button>
+            </section>
+
+
+            <!-- PASO 2: DESARROLLO (Scratch Simulado y Andamiaje) -->
+            <section id="scratch-container" class="contenido-paso" style="display: none;">
+                <h3 class="paso-title">Paso 2: ¡A Programar! Crea la Secuencia de Movimiento y Grito.</h3>
+
+                <div class="scratch-grid-level">
+                    <!-- COLUMNA IZQUIERDA: Guía Paso a Paso (Andamiaje) -->
+                    <div class="andamiaje-area-level">
+                        <p class="titulo-area">Guía Paso a Paso (Andamiaje)</p>
+                        <p>Marca cada bloque al usarlo en Scratch para asegurar tu secuencia lógica. ¡Recuerda el orden!
+                        </p>
+                        <ul id="micro-pasos-lista" data-next-step="emociones-container">
+                            <!-- Respuestas en desorden, pero data-paso indica el orden correcto (1, 2, 3, 4, 5) -->
+                            <li class="micro-paso" data-paso="1">1. 🏁 Bloque de Inicio (Bandera Verde)</li>
+                            <li class="micro-paso" data-paso="2">2. ➡️ Bloque Mover (10 Pasos)</li>
+                            <li class="micro-paso" data-paso="3">3. ⏱️ Bloque Control (Esperar 1 Segundo)</li>
+                            <li class="micro-paso" data-paso="4">4. 🔄 Bloque Giro (Girar 90 Grados)</li>
+                            <li class="micro-paso" data-paso="5">5. 💬 Bloque Decir ("¡Listo!")</li>
+                        </ul>
+                        <p id="mensaje-reto-completo" style="display: none;">🎉 ¡Excelente! Secuencia de Movimiento
+                            Completa. <button class="nav-menu-button" id="btn-goto-emociones">Continuar</button></p>
+                    </div>
+
+                    <!-- COLUMNA DERECHA: Scratch Integrado -->
+                    <div class="scratch-area-level">
+                        <p class="titulo-area">Área de Programación (Scratch) - ¡Programa Aquí!</p>
+                        <p class="instruccion-scratch">RETO: El Robot Byte debe MOVERSE 10 pasos, ESPERAR 1 segundo,
+                            GIRAR 90 grados y luego decir "¡Listo!".</p>
+                        <p class="instruccion-scratch">Ingresa al link de Scratch</p>
+                        <a class="nav-menu-button" href="https://scratch.mit.edu/projects/editor/?tutorial=getStarted"
+                            target="_blank">link Scratch</a>
+                        <p class="instruccion-scratch">Ingresa al link para ver un ejemplo de como funciona.</p>
+                        <a class="nav-menu-button" href="https://scratch.mit.edu/projects/1243432427"
+                            target="_blank">como se debe de ver</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PASO 3: CIERRE (Juego de Emociones) -->
+            <section id="emociones-container" class="contenido-paso" style="display: none;">
+                <h3 class="paso-title">Paso 3: ¿Cómo te sientes después de programar?</h3>
+                <div class="emocion-grid">
+                    <img id="robot-emocion" src="img/robot neutro.png" alt="Robot Byte listo para reaccionar">
+                    <div class="reaccion-texto">
+                        <p id="pregunta-emocion">Selecciona la emoción que sentiste al programar:</p>
+                        <div class="botones-emocion-container">
+                            <button class="boton-emocion feliz" data-emocion="feliz">😃 Feliz</button>
+                            <button class="boton-emocion confundido" data-emocion="confundido">😟 Confundido</button>
+                            <button class="boton-emocion frustrado" data-emocion="frustrado">😠 Frustrado</button>
+                        </div>
+                        <p id="feedback-robot" class="feedback-robot" style="display: none;"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PANTALLA FINAL -->
+            <section id="final-container" class="contenido-paso" style="display: none;">
+                <h3 class="paso-title">¡Misión Cumplida! Eres un Programador Nivel 1.</h3>
+                <p>Has terminado la clase de hoy. Aprendiste a usar la secuencia para darle órdenes a un robot. ¡Puedes
+                    volver al menú para intentar el Nivel Intermedio!</p>
+                <img src="img/robot Feliz.png" alt="Byte celebrando" class="logo-byte">
+                <a href="index.html" class="boton-accion" style="margin-top: 30px;">⬅️ Volver al Menú Principal</a>
+            </section>
+
+        </main>
+
+        <footer>
+            <!-- (El footer se mantiene) -->
+            <div class="footer-container">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h4>Información Institucional</h4>
+                        <p>Universidad Pedagógica y Tecnológica de Colombia</p>
+                        <p>Sede Central Tunja – Boyacá – Colombia</p>
+                        <p>Facultad de Ciencias de la Educación - Licenciatura en Informática</p>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Autores del REA</h4>
+                        <p>Jose Sierra (<a href="mailto:jose.sierra10@uptc.edu.co">jose.sierra10@uptc.edu.co</a>)</p>
+                        <p>Andres Salcedo (<a
+                                href="mailto:william.lopez11@uptc.edu.co">andres.salcedo02@uptc.edu.co</a>)</p>
+                    </div>
+                </div>
+                <div class="footer-divider"></div>
+                <div class="footer-logos">
+                    <img src="img/logo-facu-edu.png" alt="Logo Facultad Educación">
+                    <img src="img/logo-lic-inf.png" alt="Logo Licenciatura en Informática">
+                    <img src="img/logo-uptc.png" alt="Logo UPTC">
+                </div>
+            </div>
+            <section class="footer-credits">
+                <a href="https://creativecommons.org" target="_blank">REA</a> © 2025 by Edwin is
+                licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA
+                    4.0</a>
+                <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
+                    style="max-width: 1em;max-height:1em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
+                    style="max-width: 1em;max-height:1em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg"
+                    style="max-width: 1em;max-height:1em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg"
+                    style="max-width: 1em;max-height:1em;margin-left: .2em;">
+            </section>
+        </footer>
+    </div>
+
+    <!-- SCRIPT DE NIVELES Y TTS -->
+    <script src="js/level-scripts.js"></script>
+</body>
+
+</html>

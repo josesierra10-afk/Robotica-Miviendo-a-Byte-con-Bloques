@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Menú de Aventura: Robótica con Bloques UPTC</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<audio id="welcome-tts-audio"></audio>
+
+<body class="content-hidden">
+    <div id="welcome-overlay" class="overlay">
+        <div class="dialog-box">
+            <img id="dialog-robot" src="img/robot saluda.png" alt="Robot Byte saludando" class="robot-dialog">
+            <p id="message-text" class="message-text"></p>
+            <div class="nav-buttons">
+                <button id="prev-button" style="display: none;">⬅️ Atrás</button>
+                <button id="next-button">Adelante ➡️</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content-wrapper">
+        <header>
+            <img src="img/robot saluda.png" alt="Byte, el Bot Amigable" class="logo-byte">
+            <h1>¡Hola! Soy Byte, elige tu nivel de aventura.</h1>
+        </header>
+
+        <main>
+            <section id="menu-niveles" class="contenido-paso menu-unidades" style="display: none;">
+                <h3>Elige tu Aventura de Programación:</h3>
+
+                <div class="unidades-container">
+
+                    <a href="facil.html" class="unidad-sticker sticker-1">
+                        <span class="unidad-numero">1</span>
+                        <span class="unidad-texto">Nivel 1: Fácil</span>
+                    </a>
+
+                    <a href="medio.html" class="unidad-sticker sticker-2">
+                        <span class="unidad-numero">2</span>
+                        <span class="unidad-texto">Nivel 2: Intermedio</span>
+                    </a>
+
+                    <a href="dificil.html" class="unidad-sticker sticker-3">
+                        <span class="unidad-numero">3</span>
+                        <span class="unidad-texto">Nivel 3: Avanzado</span>
+                    </a>
+
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h4>Información Institucional</h4>
+                        <p>Universidad Pedagógica y Tecnológica de Colombia</p>
+                        <p>Sede Central Tunja – Boyacá – Colombia</p>
+                        <p>Facultad de Ciencias de la Educación - Licenciatura en Informática</p>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Autores del REA</h4>
+                        <p>Jose Sierra (<a href="mailto:jose.sierra10@uptc.edu.co">jose.sierra10@uptc.edu.co</a>)</p>
+                        <p>Andres Salcedo (<a href="mailto:william.lopez11@uptc.edu.co">andres.salcedo02@uptc.edu.co</a>)
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-divider"></div>
+                <div class="footer-logos">
+                    <img src="img/logo-facu-edu.png" alt="Logo Facultad Educación">
+                    <img src="img/logo-lic-inf.png" alt="Logo Licenciatura en Informática">
+                    <img src="img/logo-uptc.png" alt="Logo UPTC">
+                </div>
+            </div>
+            <section class="footer-credits">
+                <a href="https://creativecommons.org" target="_blank">REA</a> © 2025 by Edwin is
+                licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA
+                    4.0</a>
+                <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
+                    style="max-width: 1em;max-height:1em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
+                    style="max-width: 1em;max-height:1em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg"
+                    style="max-width: 1em;max-height:1em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg"
+                    style="max-width: 1em;max-height:1em;margin-left: .2em;">
+            </section>
+        </footer>
+    </div>
+
+    <script src="js/js.js"></script>
+</body>
+
+</html>
